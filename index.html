@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to make a temperature-controlled outlet</title>
+    <link rel="stylesheet" href="style.css"></rel>
+</head>
+<body class="line-numbers">
+    <span class="center">ARDUINO TUTORIAL</span>
+    <h1>How to make a temperature-controlled outlet</h1>
+    <table class="difficulty-level">
+        <tbody>
+            <tr>
+                <td>Difficulty Level</td>
+                <td class="easy"></td>
+                <td class="intermediate"></td>
+                <td class="difficult"></td>
+            </tr>
+            <tr>Beginner</tr>
+        </tbody>
+    </table>
+    <div><h2>Table of Contents</h2>
+        <ul>
+            <li>
+                <a href="#Materials">Materials and Equipment</a>
+                <ul>
+                    <li>
+                        Hardware
+                    </li>
+                    <li>
+                        Software</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Procedures">Procedures</a>
+                <ul>
+                    <li><a href="#Board-to-IDE">Connecting the Board to the Development Environment</a></li>
+                    <li>Creating a New Sketch</li>
+                    <li>Connecting the Breadboard to the Arduino</li>
+                </ul>
+            </li>
+    </div>
+    <div id="Materials"><h2>Materials and Equipment</h2>
+        <button class="accordion"><h3>Hardware</h3></button>
+            <div class="panel">
+                <table class="materials-table">
+                    <thead>
+                        <th>Image</th>
+                        <th>Component</th>
+                        <th>Description</th>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td></td>
+                            <td>Arduino Uno Rev3 (R3)<br><span class="subtitle">(or Arduino Nano, Arduino Mega, ESP32, etc.)</span></td>
+                           <td>This is the microcontroller board with the processor</td>
+                        </tr>
+                        <tr>
+                            <td>Temperature and Humidity Sensor Module AM2302<br><span class="subtitle">(or DHT11, DHT22)</span></td>
+                        </tr>
+                        <tr>
+                            <td>4 Mini Pushbutton Switches</td>
+                            <td>This will serve as the control interface, allowing the users to change the desired temperature.</td>
+                        </tr>
+                        <tr>
+                            <td>1-Channel 5V 10A Relay Module with Optocoupler</td>
+                        </tr>
+                        <tr>
+                            <td>Liquid Crystal Display (LCD) - I2C</td>
+                        </tr>
+                        <tr>
+                            <td>Jumper Cables</td>
+                            <td>This will be used as a connector. Male-to-Female (M/F) will be used to connect the terminals of the sensor module to the breadboard. Male-to-Male (M/M)</td>
+                        </tr>
+                        <tr>
+                             <td>Solderless Breadboard<br><span class="subtitle">Minimum recommended size: 400 tie points </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </ul>
+        <h3>Software</h3>
+        Arduino IDE
+            <table>
+                <a href="https://commons.wikimedia.org/wiki/File:Arduino_IDE_logo.svg"><img width="36" display="flex" alt="Arduino IDE logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Arduino_IDE_logo.svg/512px-Arduino_IDE_logo.svg.png?20230510165732"></a>
+            </table>
+        
+    </div>
+    <div id="Procedures"><h2>Procedures</h2>
+        
+        <div id="Board-to-IDE"><h3>Connecting the Board to the Development Environment</h3> 
+            <ol>
+                <li>
+                    Plug the Arduino Uno board to one of the USB ports of the laptop/ computer through the USB Type-A to USB Type-B cable. This should light up the LED marked "ON" on the Arduino Uno to indicate that the board is now being powered.
+                </li>
+                <li>
+                    Launch the Arduino IDE.
+                    <div class="alert alert-warning">
+                        <span class="fas">&#xf06a;</span>
+                        <strong>Warning! </strong>Laptops/ computers generally can recognize that there is a USB device connected, but are not able to automatically identify it as an Arduino board.
+                    </div>
+                    <ol>
+                        <li><strong>Tools </strong><i class="fas">&#xf105;</i></span><strong> Board</strong>, then select Arduino Uno.</li>
+                        <li><strong>Tools </strong><i class="fas">&#xf105;</i></span><strong> Port</strong>, then select the communication (COM) port that corresponds to the Arduino.</li>
+                        <div class="alert alert-info">
+                            <span class="material-symbols-outlined">info</span>
+                            <strong>Note. </strong>The port can be identified through the system’s Device Manager, wherein the Arduino Uno appears as an “Unknown device”.
+                        </div>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+
+        <div><h3>Creating a New Sketch</h3>
+            <ol>
+                <li>Load a new sketch in the Arduino IDE.</li>
+                    <ol>
+                        <li><strong>File <i class="fas">&#xf105;</i></span> New</strong> The sketch should contain the .ino file extension.</li>
+                        <pre><code class="language-arduino">
+                            void setup(){
+                                // put your setup code here, to run once:
+                              
+                              }
+                              
+                              void loop(){
+                                // put your main code here, to run repeatedly:
+                              
+                              }                  
+                        </code></pre>
+                    </ol>
+                <li>Download the libraries. There are two (2) methods to this.
+                        <ol class="method-list">
+                            <li class="method-list-item">Open the <strong>Library Manager</strong> within Arduino IDE.</li>
+                                <ol>
+                                    <li><strong>Sketch <i class="fas">&#xf105;</i> Include Library <i class="fas">&#xf105;</i> Manage Libraries</strong> or <strong>Tools <i class="fas">&#xf105;</i>Manage Libraries</li></strong>
+                                </ol>
+                        </ol>
+                </li>
+                <li>Include libraries</li>
+                <pre><code class="language-arduino">
+                    #include &lt;LiquidCrystal_I2C&gt;
+                    #include &lt;DHT.h&gt;
+                    void setup(){
+                      }
+                      
+                      void loop(){
+                      }
+                </code></pre>
+            </ol>
+            
+        </div>
+        <div>
+            <h3>Connecting the Breadboard to the Arduino</h3>
+            <div>
+                Some breadboards <strong>do not</strong> have markings that visualize the orientation of the <strong style="color: #eb0a1e">power rail</strong>, which is typically marked by a <strong style="color: #eb0a1e">red line</strong> and a <strong style="color: #eb0a1e">plus (<i class="fa">&#xf067;</i>) sign</strong>, and the <strong>ground rail</strong>, which is typically marked by either a blue or black line and a negative sign. In such case, simply assign the rails. Generally, the left rails are used as the power rails while right rails are used as ground rails. Make sure to keep it consistent to prevent accidental short circuits.
+                <ol>
+                    <li>To be able to use both power rails as one, establish the connection between the <strong>two power rails</strong> of the breadboard by connecting one hole from each rail with a <strong>M/M jumper wire</strong>.
+                    <div>Tip: Use a red jumper wire to indiicate positive power supply connection for consistency.</div>
+                    <li>Connect one of the holes witin the power rail to the 5V pin of the Arduino Uno using a M/M jumper wire.</li>
+                    <li>To be able to use both ground rails as one, connect</li>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <code class="inline-code">in-line code</code>
+</body>
+<script src="prism.js"></script>
+<script src="accordion.js"></script>
+<script src="https://kit.fontawesome.com/9ef70a0feb.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="prism.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<br>
+<img src="https://support.arduino.cc/hc/article_attachments/13367271560476" width="36"> Free Online Tutorial<br>
+Authors: Maria Margarita Abasolo, Gabriel Atayde, Rodric Emmanuel Hones<br>
+Published: December 13, 2024 <br>
+<footer>
+    <a href="https://github.com/ABagram" class="fa fa-github"></a>
+    <a href="https://www.linkedin.com/in/maria-margarita-abasolo/" class="fa fa-linkedin"></a><br>
+    Copyright © Maria Margarita Abasolo 2024. All rights reserved.
+</footer>
+
+</html>
