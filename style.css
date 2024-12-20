@@ -1,6 +1,9 @@
 :root{
-    --primary-color: #467b7c;
-    --secondary-color: #D85427;
+    --primary-color: #00878f;
+    --secondary-color: #e47128;
+    --tertiary-color: #62AEB2;
+    --quaternary-color: #E5AD24;
+    --quinary-color: #8C7965;
     --border-color: #ECF1F1;
     padding: 30px;
 }
@@ -8,6 +11,8 @@
 body{
 font-family: Poppins;
 background-size: 40px 40px;
+width: 85%;
+margin: auto;
 }
 
 h1{
@@ -16,6 +21,10 @@ h1{
 
 h2{
     color: var(--secondary-color);
+}
+
+h3{
+    border-bottom: 0.15em solid var(--border-color);
 }
 
 .subtitle{
@@ -37,7 +46,7 @@ code{
     overflow: hidden;
     margin: clamp(1.375rem, 1.2rem + .89vw, 2rem) 0;
     position: relative;
-    border: 1px solid var(--border-color);
+    border: .15em solid var(--border-color);
     font-size: clamp(1rem, .96rem + .18vw, 1.125rem);
 }
 
@@ -96,26 +105,40 @@ footer{
 }
 
 .alert{
+    border-style: solid;
     border-radius: 10px;
     margin: 10px;
     padding: 20px;
 }
 
 .alert-info{
-    color: #3daef2;
-    background-color: #cbe4f2;
-    border-left: 10px solid #3daef2;
+    border: .15em solid var(--tertiary-color);
+}
+
+.alert-info-text{
+    color: var(--tertiary-color);
+}
+
+.vcc{
+    color: #E74C3C;
 }
 
 .alert-warning{
-    color: #cd8702;
-    background-color: #fedb9b;
-    border-left: 10px solid #cd8702;
+    border: .15em solid var(--quaternary-color);
+}
+
+.alert-warning-text{
+    color: var(--quaternary-color);
 }
 
 ol{
   counter-reset: step-count; 
   list-style-type: none;
+  margin-left: 30px;
+}
+
+ol li{
+    margin: 1em;
 }
 
 ol li::before{
@@ -123,12 +146,13 @@ ol li::before{
     counter-increment: step-count;
     font-weight: bold;
     color: var(--secondary-color);
-    background-color: var(--border-color);
     border-style: solid;
     border-width: .15em;
-    border-radius: 1em;
-    padding: .25em;
+    border-radius: 5em;
+    padding: 0.25em 0.5em 0.25em 0.5em;
     margin: .5em;
+    position: absolute;
+    transform: translateY(-40%) translateX(-140%);
 }
 
 .method-list{
@@ -136,7 +160,7 @@ ol li::before{
 }
 
 .method-list-item::before{
-    content: "Method " counter(method-count)". ";
+    content: "Method " counter(method-count);
     counter-increment: method-count;
     font-weight: bold;
     background-color: transparent;
@@ -151,4 +175,9 @@ ol li::before{
     border-radius: .25em;
     padding: .25em;
     background-color: var(--border-color);
+    color: var(--primary-color);
+}
+
+a:link{
+    text-decoration: none;
 }

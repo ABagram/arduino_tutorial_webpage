@@ -42,44 +42,42 @@
             </li>
     </div>
     <div id="Materials"><h2>Materials and Equipment</h2>
-        <button class="accordion"><h3>Hardware</h3></button>
-            <div class="panel">
-                <table class="materials-table">
-                    <thead>
-                        <th>Image</th>
-                        <th>Component</th>
-                        <th>Description</th>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                            <td></td>
-                            <td>Arduino Uno Rev3 (R3)<br><span class="subtitle">(or Arduino Nano, Arduino Mega, ESP32, etc.)</span></td>
-                           <td>This is the microcontroller board with the processor</td>
-                        </tr>
-                        <tr>
-                            <td>Temperature and Humidity Sensor Module AM2302<br><span class="subtitle">(or DHT11, DHT22)</span></td>
-                        </tr>
-                        <tr>
-                            <td>4 Mini Pushbutton Switches</td>
-                            <td>This will serve as the control interface, allowing the users to change the desired temperature.</td>
-                        </tr>
-                        <tr>
-                            <td>1-Channel 5V 10A Relay Module with Optocoupler</td>
-                        </tr>
-                        <tr>
-                            <td>Liquid Crystal Display (LCD) - I2C</td>
-                        </tr>
-                        <tr>
-                            <td>Jumper Cables</td>
-                            <td>This will be used as a connector. Male-to-Female (M/F) will be used to connect the terminals of the sensor module to the breadboard. Male-to-Male (M/M)</td>
-                        </tr>
-                        <tr>
-                             <td>Solderless Breadboard<br><span class="subtitle">Minimum recommended size: 400 tie points </span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h3>Hardware</h3>
+            <table class="materials-table">
+                <thead>
+                    <th>Image</th>
+                    <th>Component</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td></td>
+                        <td>Arduino Uno Rev3 (R3)<br><span class="subtitle">(or Arduino Nano, Arduino Mega, ESP32, etc.)</span></td>
+                        <td>This is the microcontroller board with the processor</td>
+                    </tr>
+                    <tr>
+                        <td>Temperature and Humidity Sensor Module AM2302<br><span class="subtitle">(or DHT11, DHT22)</span></td>
+                    </tr>
+                    <tr>
+                        <td>4 Mini Pushbutton Switches</td>
+                        <td>This will serve as the control interface, allowing the users to change the desired temperature.</td>
+                    </tr>
+                    <tr>
+                        <td>1-Channel 5V 10A Relay Module with Optocoupler</td>
+                    </tr>
+                    <tr>
+                        <td>Liquid Crystal Display (LCD) - I2C</td>
+                    </tr>
+                    <tr>
+                        <td>Jumper Cables</td>
+                        <td>This will be used as a connector. Male-to-Female (M/F) will be used to connect the terminals of the sensor module to the breadboard. Male-to-Male (M/M)</td>
+                    </tr>
+                    <tr>
+                            <td>Solderless Breadboard<br><span class="subtitle">Minimum recommended size: 400 tie points </span></td>
+                    </tr>
+                </tbody>
+            </table>
             
         </ul>
         <h3>Software</h3>
@@ -91,23 +89,24 @@
     </div>
     <div id="Procedures"><h2>Procedures</h2>
         
-        <div id="Board-to-IDE"><h3>Connecting the Board to the Development Environment</h3> 
+        <div id="Board-to-IDE" class="header"><h3>Connecting the Board to the Development Environment</h3>
             <ol>
                 <li>
-                    Plug the Arduino Uno board to one of the USB ports of the laptop/ computer through the USB Type-A to USB Type-B cable. This should light up the LED marked "ON" on the Arduino Uno to indicate that the board is now being powered.
+                    <span class="aligned-bullet">Plug the Arduino Uno board to one of the USB ports of the laptop/ computer through the USB Type-A to USB Type-B cable. This should light up the LED marked "ON" on the Arduino Uno to indicate that the board is now being powered.
+                    </span>
                 </li>
                 <li>
                     Launch the Arduino IDE.
                     <div class="alert alert-warning">
-                        <span class="fas">&#xf06a;</span>
-                        <strong>Warning! </strong>Laptops/ computers generally can recognize that there is a USB device connected, but are not able to automatically identify it as an Arduino board.
+                        <span class="fas alert-warning-text">&#xf06a;</span>
+                        <strong class="alert-warning-text">Warning!</strong><br>Laptops/ computers generally can recognize that there is a USB device connected, but are not able to automatically identify it as an Arduino board.
                     </div>
                     <ol>
                         <li><strong>Tools </strong><i class="fas">&#xf105;</i></span><strong> Board</strong>, then select Arduino Uno.</li>
                         <li><strong>Tools </strong><i class="fas">&#xf105;</i></span><strong> Port</strong>, then select the communication (COM) port that corresponds to the Arduino.</li>
                         <div class="alert alert-info">
-                            <span class="material-symbols-outlined">info</span>
-                            <strong>Note. </strong>The port can be identified through the system’s Device Manager, wherein the Arduino Uno appears as an “Unknown device”.
+                            <img src="https://img.icons8.com/?size=20&id=dbEL2NLmlcac&format=png&color=62AEB2" style="display: inline-block; transform: translateY(20%);">
+                            <strong class="alert-info-text">Note.</strong><br>The port can be identified through the system’s Device Manager, wherein the Arduino Uno appears as an “Unknown device”.
                         </div>
                     </ol>
                 </li>
@@ -154,8 +153,12 @@
         </div>
         <div>
             <h3>Connecting the Breadboard to the Arduino</h3>
-            <div>
-                Some breadboards <strong>do not</strong> have markings that visualize the orientation of the <strong style="color: #eb0a1e">power rail</strong>, which is typically marked by a <strong style="color: #eb0a1e">red line</strong> and a <strong style="color: #eb0a1e">plus (<i class="fa">&#xf067;</i>) sign</strong>, and the <strong>ground rail</strong>, which is typically marked by either a blue or black line and a negative sign. In such case, simply assign the rails. Generally, the left rails are used as the power rails while right rails are used as ground rails. Make sure to keep it consistent to prevent accidental short circuits.
+            <div class="alert alert-info">
+                <img src="https://img.icons8.com/?size=20&id=dbEL2NLmlcac&format=png&color=62AEB2" style="display: inline-block; transform: translateY(20%);">
+                            <strong class="alert-info-text">Note.</strong><br>
+                            Some breadboards <strong>do not</strong> have markings that visualize the orientation of the <strong class="vcc">power rail</strong>, which is typically marked by a <strong class="vcc">red line</strong> and a plus <strong class="vcc"><i class="fa">&#xf067;</i></strong> sign, and the <strong>ground rail</strong>, which is typically marked by either a blue or black line and a negative sign. In such case, simply assign the rails. Generally, the left rails are used as the power rails while right rails are used as ground rails. Make sure to keep it consistent to prevent accidental short circuits.<hr>
+                            Learn more. <a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard" target="_blank">How to Use a Breadboard <i class="fas fa-external-link"></i></a>
+                        </div>
                 <ol>
                     <li>To be able to use both power rails as one, establish the connection between the <strong>two power rails</strong> of the breadboard by connecting one hole from each rail with a <strong>M/M jumper wire</strong>.
                     <div>Tip: Use a red jumper wire to indiicate positive power supply connection for consistency.</div>
@@ -163,7 +166,7 @@
                     <li>To be able to use both ground rails as one, connect</li>
                     </li>
                 </ol>
-            </div>
+            
         </div>
     </div>
     <code class="inline-code">in-line code</code>
