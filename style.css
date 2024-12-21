@@ -11,7 +11,7 @@
 body{
 font-family: Poppins;
 background-size: 40px 40px;
-width: 85%;
+max-width: 100vh;
 margin: auto;
 }
 
@@ -93,6 +93,9 @@ code{
 footer{
     text-align: center;
     background-color: var(--border-color);
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
 }
 
 .center{
@@ -100,14 +103,12 @@ footer{
     justify-content: center;
 }
 
-.fa-info-circle{
-    color: inherit;
-}
 
 .alert{
     border-style: solid;
     border-radius: 10px;
-    margin: 10px;
+    margin-top: 2em;
+    margin-bottom: 2em;
     padding: 20px;
 }
 
@@ -129,6 +130,14 @@ footer{
 
 .alert-warning-text{
     color: var(--quaternary-color);
+}
+
+.alert-tip{
+    border: .15em solid var(--quinary-color);
+}
+
+.alert-tip-text{
+    color: var(--quinary-color);
 }
 
 ol{
@@ -164,6 +173,7 @@ ol li::before{
     counter-increment: method-count;
     font-weight: bold;
     background-color: transparent;
+    color: var(--quaternary-color);
 }
 
 .fa{
@@ -186,22 +196,24 @@ a:link{
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted;
+    cursor: pointer;
 }
 
 .tooltip .tooltiptext{
+    
     visibility: hidden;
     width: 25em;
-    background-color: black;
+    background-color: rgba(0,0,0,0.8);
     color: white;
     text-align: center;
-    border-radius: 5em;
+    border-radius: .5em;
     padding: 0.25em 0.5em 0.25em 0.5em;
 
     position: absolute;
     z-index: 1;
 
     bottom: 110%;
-    margin-left: -15em;
+    margin-left: -16.25em;
 }
 
 .tooltip .tooltiptext::after{
@@ -217,4 +229,42 @@ a:link{
 
 .tooltip:hover .tooltiptext{
     visibility: visible;
+}
+
+.material{
+    color: var(--secondary-color);
+}
+
+#progress-bar{
+    --scroll-amount: 10%;
+    background-color: var(--secondary-color);
+    width: var(--scroll-amount);
+    height: 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.table-of-contents li{
+    list-style: none;
+}
+
+.table-of-contents li::before{
+    font-family: 'FontAwesome';
+    content: '\f105';
+    margin: 0 5px 0 -15px;
+    font-weight: bold;
+}
+
+.table-of-contents li ul li:hover{
+    background-color: var(--border-color);
+    border-radius: 10px;
+}
+
+.table-of-contents li.visited::before{
+    font-family: 'FontAwesome';
+    content: '\f00c';
+    margin: 0 5px 0 -15px;
+    font-weight: bold;
 }

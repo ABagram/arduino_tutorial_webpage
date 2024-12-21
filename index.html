@@ -10,6 +10,9 @@
 </head>
 
 <body class="line-numbers">
+
+    <div id="progress-bar"></div>
+
     <span class="center">ARDUINO TUTORIAL</span>
     <h1>How to make a temperature-controlled outlet</h1>
     <table class="difficulty-level">
@@ -25,7 +28,7 @@
     </table>
     <div>
         <h2>Table of Contents</h2>
-        <ul>
+        <ul class="table-of-contents">
             <li>
                 <a href="#Materials">Materials and Equipment</a>
                 <ul>
@@ -44,6 +47,7 @@
                     <li>Connecting the Breadboard to the Arduino</li>
                 </ul>
             </li>
+        </ul>
     </div>
     <div id="Materials">
         <h2>Materials and Equipment</h2>
@@ -106,30 +110,35 @@
             <h3>Connecting the Board to the Development Environment</h3>
             <ol>
                 <li>
-                    <span class="aligned-bullet">Plug the Arduino Uno board to one of the USB ports of the laptop/
-                        computer through the USB Type-A to USB Type-B cable. This should light up the LED marked "ON" on
+                    <span class="aligned-bullet">Plug the <span class="material">Arduino Uno board</span> to one of the
+                        USB ports of the <span class="material">laptop/
+                            computer</span> through the <span class="material">USB Type-A to USB Type-B cable</span>.
+                        This should light up the LED marked "ON" on
                         the Arduino Uno to indicate that the board is now being powered.
                     </span>
                 </li>
                 <li>
-                    Launch the Arduino IDE.
-                    <div class="alert alert-warning">
-                        <span class="fas alert-warning-text">&#xf06a;</span>
-                        <strong class="alert-warning-text">Warning!</strong><br>Laptops/ computers generally can
-                        recognize that there is a USB device connected, but are not able to automatically identify it as
-                        an Arduino board.
-                    </div>
+                    Launch the <span class="material">Arduino IDE</span>.
                     <ol>
                         <li><strong>Tools </strong><i class="fas">&#xf105;</i></span><strong> Board</strong>, then
-                            select Arduino Uno.</li>
+                            select Arduino Uno.
+                            <div class="alert alert-warning">
+                                <span class="fas alert-warning-text">&#xf06a;</span>
+                                <strong class="alert-warning-text">Warning!</strong><br>Laptops/ computers generally can
+                                recognize that there is a USB device connected, but are not able to automatically
+                                identify it as
+                                an Arduino board.
+                            </div>
+                        </li>
                         <li><strong>Tools </strong><i class="fas">&#xf105;</i></span><strong> Port</strong>, then select
-                            the communication (COM) port that corresponds to the Arduino.</li>
-                        <div class="alert alert-info">
-                            <img src="https://img.icons8.com/?size=20&id=dbEL2NLmlcac&format=png&color=62AEB2"
-                                style="display: inline-block; transform: translateY(20%);">
-                            <strong class="alert-info-text">Note.</strong><br>The port can be identified through the
-                            system’s Device Manager, wherein the Arduino Uno appears as an “Unknown device”.
-                        </div>
+                            the communication (COM) port that corresponds to the Arduino.
+                            <div class="alert alert-info">
+                                <img src="https://img.icons8.com/?size=20&id=dbEL2NLmlcac&format=png&color=62AEB2"
+                                    style="display: inline-block; transform: translateY(20%);">
+                                <strong class="alert-info-text">Note.</strong><br>The port can be identified through the
+                                system’s Device Manager, wherein the Arduino Uno appears as an “Unknown device”.
+                            </div>
+                        </li>
                     </ol>
                 </li>
             </ol>
@@ -138,9 +147,9 @@
         <div>
             <h3>Creating a New Sketch</h3>
             <ol>
-                <li>Load a new sketch in the Arduino IDE.</li>
+                <li>Load a new sketch in the <span class="material">Arduino IDE</span>.</li>
                 <ol>
-                    <li><strong>File <i class="fas">&#xf105;</i></span> New</strong> The sketch should contain the .ino
+                    <li><strong>File <i class="fas">&#xf105;</i></span> New.</strong> The sketch should contain the .ino
                         file extension.</li>
                     <pre><code class="language-arduino">
                             void setup(){
@@ -161,6 +170,8 @@
                             <li><strong>Sketch <i class="fas">&#xf105;</i> Include Library <i class="fas">&#xf105;</i>
                                     Manage Libraries</strong> or <strong>Tools <i class="fas">&#xf105;</i>Manage
                                     Libraries</li></strong>
+                            <li></li>
+                        <li class="method-list-item">Test</li>
                         </ol>
                     </ol>
                 </li>
@@ -186,9 +197,11 @@
                 Some breadboards <strong>do not</strong> have markings that indicate which power rails (strips) are
                 <span class="alert-info-text tooltip">positive<span class="tooltiptext">typically marked by a <strong
                             class="vcc">red line</strong> and a plus <strong class="vcc"><i
-                                class="fa">&#xf067;</i></strong> sign</span></span>, and the <strong>ground
-                    rail</strong>, which is typically marked by either a <strong style="color: #2980B9;">blue</strong>
-                or <strong>black line</strong> and a negative <i class="fa">&#xf068;</i> sign.<p>In such case, simply
+                                class="fa">&#xf067;</i></strong> sign</span></span>, or <span
+                    class="alert-info-text tooltip">negative<span class="tooltiptext">typically marked by either a
+                        <strong style="color: #2980B9;">blue</strong>
+                        or <strong>black line</strong> and a negative <i class="fa">&#xf068;</i> sign</span></span>.<p>
+                    In such case, simply
                     assign the rails.</p>Make sure to keep it consistent to prevent accidental short circuits.
                 <hr>
                 Learn more. <a
@@ -196,13 +209,24 @@
                     target="_blank">How to Use a Breadboard <i class="fas fa-external-link"></i></a>
             </div>
             <ol>
-                <li>To be able to use both power rails as one, establish the connection between the <strong>two power
-                        rails</strong> of the breadboard by connecting one hole from each rail with a <strong>M/M jumper
-                        wire</strong>.
-                    <div>Tip: Use a red jumper wire to indiicate positive power supply connection for consistency.</div>
-                <li>Connect one of the holes witin the power rail to the 5V pin of the Arduino Uno using a M/M jumper
-                    wire.</li>
-                <li>To be able to use both ground rails as one, connect</li>
+                <li>To use both <span class="vcc tooltip">positive rails<span class="tooltiptext">used to
+                            provide the positive voltage to power electronic components in the circuit & connect to the
+                            positive terminal of the power source</span></span> of the <span
+                        class="material">breadboard</span> interchangeably, connect them with
+                    an <span class="material">M/M jumper wire</span>. Plug one end into a hole on one rail and the other
+                    end into a hole on the other rail.
+                    <div class="alert alert-tip"><i class='fas alert-tip-text'>&#xf0eb;</i><strong
+                            class="alert-tip-text" style="padding: 7px;">Tip.</strong><br>Use a <span class="vcc">red
+                            jumper wire</span> to
+                        indicate positive power supply connection for consistency.</div>
+                <li>Connect one of the holes within the power rail to the 5V pin of the Arduino Uno using an <span
+                        class="material">M/M jumper
+                        wire</span>.</li>
+                <li>To use both <span class="tooltip">negative rails<span class="tooltiptext">used to provide the ground
+                            reference <img src="https://img.icons8.com/?size=20&id=123003&format=png&color=ffffff"> for
+                            the circuit & connect components that require a ground
+                            connection</span></span> interchangeably, connect them with an <span class="material">M/M jumper wire</span>. Plug one end
+                    into a hole on one rail and the other end into a hole on the other rail.</li>
                 </li>
             </ol>
 
@@ -210,20 +234,26 @@
     </div>
     <code class="inline-code">in-line code</code>
 </body>
+
 <script src="prism.js"></script>
+<script src="progress-bar.js"></script>
+<script src="viewed-bullet.js"></script>
 <script src="accordion.js"></script>
 <script src="https://kit.fontawesome.com/9ef70a0feb.js" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="prism.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <br>
 <img src="https://support.arduino.cc/hc/article_attachments/13367271560476" width="36"> Free Online Tutorial<br>
-Authors: Maria Margarita Abasolo, Gabriel Atayde, Rodric Emmanuel Hones<br>
-Published: December 13, 2024 <br>
+<p><strong>Credits</strong></p>
+Makers: Maria Margarita Abasolo, Gabriel Atayde, Rodric Emmanuel Hones
+Published: December 13, 2024
+
 <footer>
     <a href="https://github.com/ABagram" class="fa fa-github"></a>
     <a href="https://www.linkedin.com/in/maria-margarita-abasolo/" class="fa fa-linkedin"></a><br>
-    Copyright © Maria Margarita Abasolo 2024. All rights reserved.
+    <span class="subtitle">© 2024 Maria Margarita Abasolo. All rights reserved.</span>
 </footer>
 
 </html>
