@@ -120,6 +120,27 @@ footer{
     color: var(--tertiary-color);
 }
 
+.alert-info-header::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://img.icons8.com/?size=1000&id=dbEL2NLmlcac&format=png&color=62AEB2');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(10%);
+    color: var(--tertiary-color);
+    display: inline-block;
+    padding-left: 25px;
+}
+
+.alert-info-header::after{
+    content: 'Note.';
+    margin-left: 25px;
+    color: var(--tertiary-color);
+    font-weight: bold;
+}
+
 .vcc{
     color: #E74C3C;
 }
@@ -252,7 +273,14 @@ a:link{
 
 .table-of-contents li::before{
     font-family: 'FontAwesome';
-    content: '\f105';
+    content: '\f105'; /* > instead of default bullet*/
+    margin: 0 5px 0 -15px;
+    font-weight: bold;
+}
+
+.table-of-contents li.visited::before{
+    font-family: 'FontAwesome';
+    content: '\f00c'; /*check mark to indicate the section has been visited*/
     margin: 0 5px 0 -15px;
     font-weight: bold;
 }
@@ -260,11 +288,4 @@ a:link{
 .table-of-contents li ul li:hover{
     background-color: var(--border-color);
     border-radius: 10px;
-}
-
-.table-of-contents li.visited::before{
-    font-family: 'FontAwesome';
-    content: '\f00c';
-    margin: 0 5px 0 -15px;
-    font-weight: bold;
 }
