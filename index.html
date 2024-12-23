@@ -27,6 +27,7 @@
         </tbody>
     </table>
     <div>
+
         <h2>Table of Contents</h2>
         <ul class="table-of-contents">
             <li>
@@ -160,6 +161,18 @@
                               
                               }                  
                         </code></pre>
+                        <table>
+                            <tr>
+                                <th>Keyword</th>
+                                <th>Use</th>
+                                <th>Relation</th>
+                            </tr>
+                            <tr>
+                                <td><code class="inline-code">void</code></td>
+                                <td>used in function declarations</td>
+                                <td>In this code snippet, the functions are named <code class="inline-code">setup</code>, which will be used to initialize variables, configure pins, initialize serial communication, and initialize external devices connected to the Arduino (e.g. sensors, displays) and <code class="inline-code">loop</code>, which is a function that executes repeatedly throughout the program's lifetime and will be used in reading sensor data, processing information, making decisions, and controlling ouputs (e.g. relay).</td>
+                            </tr>
+                        </table>
                 </ol>
                 <li>Download the libraries. There are two (2) methods to this.
                     <ol class="method-list">
@@ -183,15 +196,8 @@
                       void loop(){
                       }
                 </code></pre>
-                    <table>
-                        <tr>
-                            <td><code class="inline-code">void</code></td>
-                            <td>used in function declarations</td>
-                            <td>In this code snippet, the functions are named <code class="inline-code">setup</code>, which is used to initialize variables, configure pins, initialize serial communication, and initialize external devices connected to the Arduino (e.g., sensors, displays) and <code class="inline-code">loop</code>.</td>
-                        </tr>
-                    </table>
                 <div class="alert alert-info"><span class="alert-info-header"></span><br>
-                
+                    Libraries are pre-written functions that handle specific tasks, allowing one to focus on the core functionality of the project and engage in rapid prototyping. As such, there are general-purpose libraries as well as component-specific libraries. The latter may not be available yet for proprietary, niche, or newly released components.
                 </div>
             </ol>
 
@@ -230,7 +236,7 @@
                 <li>To use both <span class="tooltip">negative rails<span class="tooltiptext">used to provide the ground
                             reference <img src="https://img.icons8.com/?size=20&id=123003&format=png&color=ffffff"> for
                             the circuit & connect components that require a ground
-                            connection</span></span> interchangeably, connect them with an <span class="material">M/M
+                            connection</span></span> of the <span class="material">breadboard</span> interchangeably, connect them with an <span class="material">M/M
                         jumper wire</span>. Plug one end
                     into a hole on one rail and the other end into a hole on the other rail.</li>
                 </li>
