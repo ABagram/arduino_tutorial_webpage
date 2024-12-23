@@ -5,6 +5,7 @@
     --quaternary-color: #E5AD24;
     --quinary-color: #8C7965;
     --border-color: #ECF1F1;
+    --code-border: #dae7e7;
 }
 
 body {
@@ -53,7 +54,7 @@ code {
 
 .inline-code {
     font-family: 'Consolas';
-    border: .1em solid #dae7e7;
+    border: .1em solid var(--code-border);
     border-radius: .35em;
     padding: .15em .35em .15em 0.35em;
     background-color: var(--border-color);
@@ -62,7 +63,6 @@ code {
 
 .accordion {
     cursor: pointer;
-    width: 100%;
     text-align: left;
     border: var(--border-color);
     transition: 0.4s;
@@ -76,6 +76,11 @@ code {
 .panel {
     display: none;
     overflow: hidden;
+    border: .15em solid var(--code-border);
+    border-radius: 10px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 20px;
 }
 
 .fa {
@@ -129,6 +134,22 @@ footer {
     content: 'Note.';
     margin-left: 25px;
     color: var(--tertiary-color);
+    font-weight: bold;
+}
+
+.alert-code{
+    border: .15em solid var(--border-color);
+}
+
+.alert-code-header::before{
+    font-family: 'FontAwesome';
+    content: '\f121';
+    font-weight: bold;
+    margin-right: .5em;
+}
+
+.alert-code-header::after{
+    content: "Code Explanation";
     font-weight: bold;
 }
 

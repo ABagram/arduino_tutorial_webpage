@@ -151,18 +151,8 @@
                               
                               }                  
                         </code></pre>
-                        <table>
-                            <tr>
-                                <th>Keyword</th>
-                                <th>Use</th>
-                                <th>Relation</th>
-                            </tr>
-                            <tr>
-                                <td><code class="inline-code">void</code></td>
-                                <td>used in function declarations</td>
-                                <td>In this code snippet, the functions are named <code class="inline-code">setup</code>, which will be used to initialize variables, configure pins, initialize serial communication, and initialize external devices connected to the Arduino (e.g. sensors, displays) and <code class="inline-code">loop</code>, which is a function that executes repeatedly throughout the program's lifetime and will be used in reading sensor data, processing information, making decisions, and controlling ouputs (e.g. relay).</td>
-                            </tr>
-                        </table>
+
+                                <div class="alert alert-code"><span class="alert-code-header"></span><br><code class="inline-code">void</code> is the keyword used in declaring functions.<hr>In this code snippet, the functions are named <code class="inline-code">setup</code>, which will be used to initialize variables, configure pins, initialize serial communication, and initialize external devices connected to the Arduino (e.g. sensors, displays) and <code class="inline-code">loop</code>, which is a function that executes repeatedly throughout the program's lifetime and will be used in reading sensor data, processing information, making decisions, and controlling ouputs (e.g. relay).</div>
                 </ol>
                 <li>Download the libraries. There are two (2) methods to this.
                     <ol class="method-list">
@@ -232,11 +222,44 @@
                         jumper wire</span>. Plug one end
                     into a hole on one rail and the other end into a hole on the other rail.</li>
                 </li>
+                <li>Connect one of the holes within the ground rail to the GND pin of Arduino Uno. 
+                </li>
             </ol>
 
         </div>
     </div>
     <code>in-line code</code>
+    
+    <div>
+        <h3>Interfacing I2C LCD with Arduino</h3>
+        <ol>
+            <li>Connect the four (4) pins of the I2C LCD display to the Arduino Uno.
+                <div class="alert alert-info"><span class="alert-info-header"></span><br>The A4 and A5 pins of the Arduino Uno board have internal circuitry that are specifically configured for I2C communication. The A4 pin is designed for serial data (SDA) line while the A5 is designed for serial clock (SCL) line of I2C communication. Thus, the connection has to be configured correctly.
+                </div>
+            </li>
+            <li>Initialize the I2C LCD.
+                <pre><code class="language-arduino">
+                    #include <LiquidCrystal_I2C.h>
+                        #include <DHT.h>
+                        
+                        LiquidCrystal_I2C lcd(0x26, 16, 2);
+                        
+                        void setup(){
+                          lcd.init();
+                          lcd.clear();
+                          lcd.backlight();
+                        }
+                        
+                        void loop(){
+                        }                        
+                </code></pre>
+
+                LiquidCrystal_I2C lcd(0x26, 16, 2)
+
+              
+            </li>
+        </ol>
+    </div>
 </body>
 
 <script src="prism.js"></script>
@@ -245,7 +268,10 @@
 <script src="accordion.js"></script>
 <script src="https://kit.fontawesome.com/9ef70a0feb.js" crossorigin="anonymous"></script>
 
-<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="prism.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
